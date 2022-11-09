@@ -11,8 +11,9 @@ module "vpc" {
   public_subnets   = ["${var.vpc_cidr}.101.0/24", "${var.vpc_cidr}.102.0/24", "${var.vpc_cidr}.103.0/24"]
   database_subnets =  ["${var.vpc_cidr}.201.0/24", "${var.vpc_cidr}.202.0/24", "${var.vpc_cidr}.203.0/24"]
 
-  enable_nat_gateway = false
+  enable_nat_gateway = true
   single_nat_gateway = true
+  one_nat_gateway_per_az = false
 
   tags = local.tags
 }
