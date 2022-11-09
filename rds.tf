@@ -2,8 +2,8 @@ module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
 
-  name        = local.name
-  description = "PostgreSQL for STL Challenge - SG"
+  name   = "${local.name}-rds"
+  description = "SG for RDS"
   vpc_id      = module.vpc.vpc_id
 
   # ingress
@@ -47,11 +47,11 @@ module "db" {
   enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
   create_cloudwatch_log_group     = true
 
-  backup_retention_period = 1
+  backup_retention_period = 0
   skip_final_snapshot     = true
   deletion_protection     = false
 
-  performance_insights_enabled          = true
+  performance_insights_enabled          = false
   performance_insights_retention_period = 7
   create_monitoring_role                = true
   monitoring_interval                   = 60
