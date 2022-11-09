@@ -147,7 +147,7 @@ resource "aws_ecs_service" "ecs_service" {
   load_balancer {
     target_group_arn = aws_lb_target_group.alb_tg_http.arn
     container_name   = local.name
-    container_port   = 80
+    container_port   = 3006
   }
 
   # NOTE: ignore any changes to that count caused externally (e.g. ASG)
