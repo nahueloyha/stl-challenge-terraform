@@ -1,7 +1,7 @@
 module "aws_key_pair" {
   source              = "cloudposse/key-pair/aws"
   version             = "0.18.0"
-  attributes          = ["ssh", "key"]
+
   ssh_public_key_path = "/"
   generate_ssh_key    = true
 }
@@ -14,7 +14,7 @@ module "ec2_bastion" {
   ami = "ami-09d3b3274b6c5d4aa"
 
   instance_type               = "t2.micro"
-  security_groups             = module.sg_bastion.security_group_id
+  security_groups             = [module.sg_bastion.security_group_id]
   subnets                     = module.vpc.public_subnets
   key_name                    = module.aws_key_pair.key_name
   vpc_id                      = module.vpc.vpc_id
