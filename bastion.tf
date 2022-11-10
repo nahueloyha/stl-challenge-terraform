@@ -10,7 +10,7 @@ module "ec2_bastion" {
   subnets                     = module.vpc.public_subnets
   key_name                    = "stl-challenge"
   vpc_id                      = module.vpc.vpc_id
-  associate_public_ip_address = false
+  associate_public_ip_address = true
 
 }
 
