@@ -1,11 +1,3 @@
-module "aws_key_pair" {
-  source              = "cloudposse/key-pair/aws"
-  version             = "0.18.0"
-
-  ssh_public_key_path = "/"
-  generate_ssh_key    = true
-}
-
 module "ec2_bastion" {
   source = "cloudposse/ec2-bastion-server/aws"
   version = "0.30.1"
@@ -16,7 +8,7 @@ module "ec2_bastion" {
   instance_type               = "t2.micro"
   security_groups             = [module.sg_bastion.security_group_id]
   subnets                     = module.vpc.public_subnets
-  key_name                    = module.aws_key_pair.key_name
+  key_name                    = "stl-challenge"
   vpc_id                      = module.vpc.vpc_id
   associate_public_ip_address = false
 
