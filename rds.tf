@@ -37,6 +37,8 @@ module "db" {
   db_name  = "tf"
   username = "tf_admin"
   port     = 5432
+  password = "masteruser"
+  create_random_password = false
 
   multi_az               = false
   db_subnet_group_name   = module.vpc.database_subnet_group

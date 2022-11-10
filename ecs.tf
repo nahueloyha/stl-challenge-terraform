@@ -69,7 +69,7 @@ module "ecs_container_definition" {
   environment = [
     {
       name  = "FASTIFY_ADDRESS"
-      value = "127.0.0.1"
+      value = "0.0.0.0"
     },
     {
       name  = "FASTIFY_PORT"
@@ -93,7 +93,7 @@ module "ecs_container_definition" {
     },
     {
       name  = "DB_PASSWORD"
-      value = "admin"
+      value = "masteruser"
     },
     {
       name  = "DB_DATABASE"
