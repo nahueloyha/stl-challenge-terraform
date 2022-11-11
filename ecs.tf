@@ -193,18 +193,6 @@ resource "aws_lb" "alb" {
   subnets         = module.vpc.public_subnets
 }
 
-# resource "aws_route53_record" "dns_record" {
-#   zone_id = data.aws_route53_zone.base_dns_zone.zone_id
-#   name    = join(".", [local.name, var.base_dns.naked_domain])
-#   type    = "A"
-
-#   alias {
-#     name                   = aws_lb.alb.dns_name
-#     zone_id                = aws_lb.alb.zone_id
-#     evaluate_target_health = true
-#   }
-# }
-
 resource "aws_security_group" "ecs_sg" {
   name   = "${local.name}-ecs"
   description = "SG for ECS"

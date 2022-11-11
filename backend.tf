@@ -5,7 +5,7 @@ terraform {
     organization = "nahueloyha"
 
     workspaces {
-      name = "stl-challenge-terraform-prod"
+      name = "stl-challenge-terraform-${var.environment}"
     }
   }
 

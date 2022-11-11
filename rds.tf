@@ -27,8 +27,8 @@ module "db" {
 
   engine               = "postgres"
   engine_version       = "14.1"
-  family               = "postgres14" # DB parameter group
-  major_engine_version = "14"         # DB option group
+  family               = "postgres14" 
+  major_engine_version = "14"         
   instance_class       = "db.t4g.micro"
 
   allocated_storage     = 20
@@ -61,23 +61,6 @@ module "db" {
   monitoring_role_use_name_prefix       = true
   monitoring_role_description           = "Monitoring role for RDS"
 
-  parameters = [
-    {
-      name  = "autovacuum"
-      value = 1
-    },
-    {
-      name  = "client_encoding"
-      value = "utf8"
-    }
-  ]
-
   tags = local.tags
-  
-  db_option_group_tags = {
-    "Sensitive" = "low"
-  }
-  db_parameter_group_tags = {
-    "Sensitive" = "low"
-  }
+
 }
