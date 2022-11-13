@@ -32,6 +32,8 @@ resource "aws_ecr_repository" "ecs_ecr" {
 
 resource "aws_ecr_lifecycle_policy" "ecs_ecr_lifecycle_policy" {
   repository = local.name
+
+  depends_on      = [aws_ecr_repository.ecs_ecr]
   policy     = <<EOF
 {
     "rules": [

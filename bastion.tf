@@ -21,8 +21,7 @@ module "sg_bastion" {
   name   = "${local.name}-ec2"
   description = "SG for EC2"
   vpc_id      = module.vpc.vpc_id
-
-  # ingress
+  
   ingress_with_cidr_blocks = [
     {
       from_port   = 22

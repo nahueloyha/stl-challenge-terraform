@@ -6,7 +6,6 @@ module "security_group" {
   description = "SG for RDS"
   vpc_id      = module.vpc.vpc_id
 
-  # ingress
   ingress_with_cidr_blocks = [
     {
       from_port   = 5432

@@ -1,6 +1,6 @@
 resource "aws_route53_zone" "public_zone" {
-  name    = "stl-${var.environment}.nahueloyha.com"
-  comment = "Managed by Terraform"
+    name    = "stl-${var.environment}.nahueloyha.com"
+    comment = "Managed by Terraform"
 }
 
 resource "aws_route53_record" "bastion" {
